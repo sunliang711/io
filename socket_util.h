@@ -27,7 +27,7 @@ void must_inet_pton(int af, const char *src, void *dst);
 
 void must_getsockname(int fd, struct sockaddr *addr, socklen_t *len);
 
-#include <netinet/in.h>
+#ifdef __linux__
 int must_epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);
 #endif
 
