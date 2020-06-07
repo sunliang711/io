@@ -1,6 +1,8 @@
 #include <pthread.h>
 #include <sys/socket.h>
+#ifdef __linux__
 #include <sys/epoll.h>
+#endif
 #include <arpa/inet.h>
 #include <string.h>
 #include <stdio.h>
@@ -135,6 +137,7 @@ sock_ntop(const struct sockaddr *addr)
     }
 }
 
+#ifdef __linux__
 int must_epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout)
 {
     int event_count;
@@ -146,3 +149,4 @@ int must_epoll_wait(int epfd, struct epoll_event *events, int maxevents, int tim
     }
     return event_count;
 }
+#endif

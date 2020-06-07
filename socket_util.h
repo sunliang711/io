@@ -2,7 +2,9 @@
 #define __SOCKET_UTIL_H__
 
 #include <netinet/in.h>
+#ifdef __linux__
 #include <sys/epoll.h>
+#endif
 // thread-safe sock_ntop
 char* sock_ntop(const struct sockaddr* addr);
 
