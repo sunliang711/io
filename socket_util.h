@@ -32,8 +32,8 @@ int must_epoll_wait(int epfd, struct epoll_event *events, int maxevents, int tim
 #endif
 
 
-#define POLL_FOREVER -1
-#define SELECT_FOREVER NULL
-#define EPOLL_FOREVER -1
+#define FOREVER_POLL -1
+#define FOREVER_SELECT NULL
+#define FOREVER_EPOLL -1
 
 #endif
